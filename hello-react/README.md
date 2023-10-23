@@ -18,18 +18,18 @@ Créer ensuite 3 composants `TodoItem` (remplace `createTodo`), `TodoSpanValue` 
 ```
 export function createTodo(todo) {
   const rowEl = document.createElement('div');
-  rowEl.className = style.todosItem;
+  rowEl.className = 'todo-item';
   rowEl.dataset.todoId = todo._id;
 
   const checkboxEl = document.createElement('input');
   checkboxEl.type = 'checkbox';
-  checkboxEl.className = style.todosCompleted;
+  checkboxEl.className = 'todo-completed';
   checkboxEl.checked = todo.completed ?? false;
 
   const spanEl = createSpanValue(todo.title);
 
   const buttonEl = document.createElement('button');
-  buttonEl.className = style.todosDeleteBtn;
+  buttonEl.className = 'todo-delete-btn';
   buttonEl.innerText = '-';
 
   rowEl.append(checkboxEl, ' ', spanEl, ' ', buttonEl);
@@ -39,14 +39,14 @@ export function createTodo(todo) {
 
 export function createSpanValue(val) {
   const spanEl = document.createElement('span');
-  spanEl.className = style.todosSpanValue;
+  spanEl.className = 'todo-span-value';
   spanEl.innerText = val;
   return spanEl;
 }
 
 export function createInputValue(val) {
   const inputEl = document.createElement('input');
-  inputEl.className = style.todosInputValue;
+  inputEl.className = 'todo-input-value';
   inputEl.value = val;
   return inputEl;
 }
