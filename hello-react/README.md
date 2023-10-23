@@ -13,10 +13,10 @@ Reprendre le HTML suivant du projet Todos et le transformer en JSX dans App :
 <div class="todos-container"></div>
 ```
 
-Créer ensuite 3 composants `TodoItem` (remplace `createTodo`), `TodoSpanValue` (remplace `createSpanValue`) et `TodoInputValue` (remplace `createInputValue`) dans `todo-item.tsx` qui traduit le code suivant en JSX :
+Créer ensuite 3 composants `TodoItem` (remplace `createTodo`), `TodoSpanValue` (remplace `createSpanValue`) et `TodoInputValue` (remplace `createInputValue`) dans `todo-item.js` qui traduit le code suivant en JSX :
 
 ```
-export function createTodo(todo: Todo): HTMLDivElement {
+export function createTodo(todo) {
   const rowEl = document.createElement('div');
   rowEl.className = style.todosItem;
   rowEl.dataset.todoId = todo._id;
@@ -37,14 +37,14 @@ export function createTodo(todo: Todo): HTMLDivElement {
   return rowEl;
 }
 
-export function createSpanValue(val: string): HTMLSpanElement {
+export function createSpanValue(val) {
   const spanEl = document.createElement('span');
   spanEl.className = style.todosSpanValue;
   spanEl.innerText = val;
   return spanEl;
 }
 
-export function createInputValue(val: string): HTMLInputElement {
+export function createInputValue(val) {
   const inputEl = document.createElement('input');
   inputEl.className = style.todosInputValue;
   inputEl.value = val;
@@ -52,18 +52,14 @@ export function createInputValue(val: string): HTMLInputElement {
 }
 ```
 
-Le type de retour des composant : `ReactNode` 
-
-Le `todo.module.scss` peut être repris tel quel (dans le projet Web-Advanced-Tools)
-
 Les innerText sont à remplacer en écrivant au milieu d'une balise JSX
 ex: `<button>-</button>`
 
 `rowEl.dataset.todoId` s'écrit comme en HTML : `<div data-todo-id="">`
 
-Ne pas passer todo en paramètre d'entrée du composant (pour l'instant)
+Les composants n'ont pour l'instant pas de paramètres
 
-A la place, remplacer des valeurs fixes :
+A la place, remplacer par des valeurs fixes :
 - todo.completed par false
 - todo.title par 'ABC'
 - todo._id = '1234'
