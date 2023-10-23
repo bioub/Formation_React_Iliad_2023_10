@@ -13,7 +13,7 @@ Reprendre le HTML suivant du projet Todos et le transformer en JSX dans App :
 <div class="todos-container"></div>
 ```
 
-Créer ensuite 3 composants `TodoItem` (remplace `createTodo`), `TodoSpanValue` (remplace `createSpanValue`) et `TodoInputValue` (remplace `createInputValue`) dans `todo-item.js` qui traduit le code suivant en JSX :
+Créer ensuite 3 composants `TodoItem` (remplace `createTodo`), `TodoSpanValue` (remplace `createSpanValue`) et `TodoInputValue` (remplace `createInputValue`) dans `TodoItem.js`, `TodoSpanValue.js` et `TodoInputValue.js` qui traduit le code suivant en JSX :
 
 ```
 export function createTodo(todo) {
