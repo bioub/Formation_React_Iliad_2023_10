@@ -1,20 +1,28 @@
 import './App.css';
+import Hello from './Hello';
+import Helloworld from './Helloworld';
 
 function App() {
-  const now = new Date();
-  const prenom = 'Romain';
+
+  const contact = {
+    name: 'Romain',
+    age: 38,
+    isActive: true,
+  }
 
   return (
-    <div className="App" id="App">
-      <p>Heure : {now.toLocaleTimeString()}</p>
-      <p>Prénom : {prenom}</p>
-    </div>
+    <div className="App">
+      <h2>Helloworld (Component, JSX, render, VirtualDOM)</h2>
+      <Helloworld />
 
-    // Sans JSX avec l'API React.createElement (legacy)
-    // React.createElement('div', { className: 'App', id: 'App' },
-    //   React.createElement('p', null, 'Heure : ', now.toLocaleTimeString()),
-    //   React.createElement('p', null, 'Prénom : ', prenom)
-    // );
+      <h2>Hello (Props)</h2>
+      <Hello name="Romain" isActive />
+      <Hello name={contact.name} age={contact.age} isActive={contact.isActive} />
+      <Hello {...contact} />
+      {/* React.createElement('h2', null, 'Hello (Props)') */}
+      {/* React.createElement(Hello, { name: 'Romain', age: 38, isActive: true }) */}
+      {/* React.createElement(Hello, contact) */}
+    </div>
   );
 }
 
