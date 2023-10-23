@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Exercices
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## JSX
 
-## Available Scripts
+Reprendre le HTML suivant du projet Todos et le transformer en JSX dans App :
 
-In the project directory, you can run:
+```
+<form class="todos-form">
+  <input type="checkbox" class="todos-toggle-checked" />
+  <input type="text" class="todos-new-input" />
+  <button>+</button>
+</form>
+<div class="todos-container"></div>
+```
 
-### `npm start`
+Créer ensuite 3 composants `TodoItem` (remplace `createTodo`), `TodoSpanValue` (remplace `createSpanValue`) et `TodoInputValue` (remplace `createInputValue`) dans `todo-item.tsx` qui traduit le code suivant en JSX :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+export function createTodo(todo: Todo): HTMLDivElement {
+  const rowEl = document.createElement('div');
+  rowEl.className = style.todosItem;
+  rowEl.dataset.todoId = todo._id;
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  const checkboxEl = document.createElement('input');
+  checkboxEl.type = 'checkbox';
+  checkboxEl.className = style.todosCompleted;
+  checkboxEl.checked = todo.completed ?? false;
 
-### `npm test`
+  const spanEl = createSpanValue(todo.title);
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  const buttonEl = document.createElement('button');
+  buttonEl.className = style.todosDeleteBtn;
+  buttonEl.innerText = '-';
 
-### `npm run build`
+  rowEl.append(checkboxEl, ' ', spanEl, ' ', buttonEl);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  return rowEl;
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export function createSpanValue(val: string): HTMLSpanElement {
+  const spanEl = document.createElement('span');
+  spanEl.className = style.todosSpanValue;
+  spanEl.innerText = val;
+  return spanEl;
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export function createInputValue(val: string): HTMLInputElement {
+  const inputEl = document.createElement('input');
+  inputEl.className = style.todosInputValue;
+  inputEl.value = val;
+  return inputEl;
+}
+```
 
-### `npm run eject`
+Le type de retour des composant : `ReactNode` 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Le `todo.module.scss` peut être repris tel quel (dans le projet Web-Advanced-Tools)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Les innerText sont à remplacer en écrivant au milieu d'une balise JSX
+ex: `<button>-</button>`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`rowEl.dataset.todoId` s'écrit comme en HTML : `<div data-todo-id="">`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Ne pas passer todo en paramètre d'entrée du composant (pour l'instant)
 
-## Learn More
+A la place, remplacer des valeurs fixes :
+- todo.completed par false
+- todo.title par 'ABC'
+- todo._id = '1234'
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+En JSX, on passe une expression autre qu'un constante de type string comme ceci :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+<input type="text" checked={true}>
+<div>{todo.title}</div>
+<input type="text" checked={todo.completed}>
+```
 
-### Code Splitting
+Enfin utiliser `TodoItem` 3 fois dans `App`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+<div class="todos-container">
+  <TodoItem />
+  <TodoItem />
+  <TodoItem />
+</div>
+```
