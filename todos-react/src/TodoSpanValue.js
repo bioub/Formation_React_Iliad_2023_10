@@ -1,7 +1,7 @@
-function TodoSpanValue() {
+function TodoSpanValue({ title }) {
   return (
     <span className="TodoSpanValue">
-      Acheter du pain
+      {title}
     </span>
   );
 }
