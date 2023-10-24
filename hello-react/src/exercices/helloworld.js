@@ -1,15 +1,19 @@
-function Helloworld() {
-  function handleInput(event) {
+import { useState } from "react";
 
-  };
+function Helloworld() {
+  const [name, setName] = useState('Romain');
+
+  function handleInput(event) {
+    setName(event.target.value);
+  }
 
   return (
     <div className="Helloworld">
       <div>
-        Name : <input onChange={handleInput} />
+        Name : <input value={name} onChange={handleInput} />
       </div>
       <p>
-        Hello <span></span> !
+        Hello <span>{name}</span> !
       </p>
     </div>
   );
