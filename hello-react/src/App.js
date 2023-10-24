@@ -1,6 +1,10 @@
 import './App.css';
+import Clock from './Clock';
 import Hello from './Hello';
 import Helloworld from './Helloworld';
+import LikeButton from './LikeButton';
+import Pokemon from './Pokemon';
+import UserForm from './UserForm';
 
 function App() {
 
@@ -22,6 +26,15 @@ function App() {
       {/* React.createElement('h2', null, 'Hello (Props)') */}
       {/* React.createElement(Hello, { name: 'Romain', age: 38, isActive: true }) */}
       {/* React.createElement(Hello, contact) */}
+
+      <h2>Clock, Pokemon (State, Effet/Lifecycle)</h2>
+      <Clock />
+      <Pokemon />
+
+      <h2>LikeButton, UserForm (Events)</h2>
+      <LikeButton />
+      <LikeButton />
+      <UserForm />
     </div>
   );
 }

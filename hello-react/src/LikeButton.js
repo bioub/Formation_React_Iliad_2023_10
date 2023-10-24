@@ -1,0 +1,17 @@
+import { useState } from "react";
+
+function LikeButton() {
+  const [likes, setLikes] = useState(0);
+
+  function handleClick() {
+    setLikes(likes + 1);
+  }
+
+  return (
+    <button className="LikeButton" onClick={handleClick}>
+      {likes}
+    </button>
+  );
+}
+
+export default LikeButton;
