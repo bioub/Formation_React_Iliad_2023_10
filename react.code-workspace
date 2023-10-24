@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "hello-react"
+		},
+		{
+			"path": "todos-react"
+		},
+		{
+			"path": "typescript-react-nx"
+		}
+	],
+	"settings": {}
+}

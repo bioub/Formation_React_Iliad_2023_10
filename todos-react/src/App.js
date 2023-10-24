@@ -1,4 +1,5 @@
 import './App.css';
+import TodoItem from './TodoItem';
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
         <button>+</button>
       </form>
       <div className="todos-container">
-        
+        <TodoItem />
+        <TodoItem />
+        <TodoItem />
       </div>
     </div>
   );
