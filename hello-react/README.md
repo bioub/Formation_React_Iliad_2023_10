@@ -107,3 +107,30 @@ Déclarer ensuite la prop `title` dans `TodoSpanValue` et l'afficher dans la bal
 Installer ensuite `prop-types` et valider les props de `TodoItem` et `TodoSpanValue` (toutes les props sont obligatoires, choisir les bons types).
 
 Bonus : au lieu de `prop-types` utiliser `TypeScript` pour typer les props (nécessite de créer un nouveau projet).
+
+## State + Loops
+
+Dans `App` créer 2 states :
+- `newTodo` avec comme valeur initiale `'XYZ'`
+- `todos` avec comme valeur initiale :
+
+```
+[
+  _id: Math.random().toString(), title: 'ABC', completed: true,
+  _id: Math.random().toString(), title: 'DEF', completed: false,
+  _id: Math.random().toString(), title: 'HIJ', completed: true,
+]
+```
+
+Afficher `newTodo` dans l'élement `<input />` du formulaire et mettre à jour `newTodo`
+lorsque la valeur change (comme dans l'exercice `Helloworld`)
+
+Dans `<div className="todos-container">` remplacer les 3 `<TodoItem />` par une boucle sur le tableau `todos` qui les transforme en `<TodoItem />`.
+
+Ecouter ensuite l'événement `submit` du formulaire et désactiver le avec `event.preventDefault()`, dans le callback `handleSubmit` ajouter un nouvel élément au tableau `todos` en appelant `setTodos` pour provoquer la mise à jour du composant.
+
+Le nouvel objet que vous ajouterez au tableau recevra :
+- `Math.random().toString()` à la clé `_id`
+- `newTodo` à la clé `title`
+- `false` à la clé `completed`
+
