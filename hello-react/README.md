@@ -116,9 +116,9 @@ Dans `App` créer 2 states :
 
 ```
 [
-  _id: Math.random().toString(), title: 'ABC', completed: true,
-  _id: Math.random().toString(), title: 'DEF', completed: false,
-  _id: Math.random().toString(), title: 'HIJ', completed: true,
+  {_id: Math.random().toString(), title: 'ABC', completed: true},
+  {_id: Math.random().toString(), title: 'DEF', completed: false},
+  {_id: Math.random().toString(), title: 'HIJ', completed: true},
 ]
 ```
 
