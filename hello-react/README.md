@@ -100,7 +100,7 @@ Dans `App` passer ensuite un objet d'exemple différent à chaque `<TodoItem />`
 Modifier le code de `TodoItem` de façon à :
 - affecter `_id` à `data-todo-id`
 - affecter `completed` à la propriété `checked` de la checkbox
-- passer `title` en prop de <TodoSpanValue />
+- passer `title` en prop de `<TodoSpanValue />`
 
 Déclarer ensuite la prop `title` dans `TodoSpanValue` et l'afficher dans la balise `<span>`
 
