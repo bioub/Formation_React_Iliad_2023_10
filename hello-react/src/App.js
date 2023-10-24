@@ -4,6 +4,7 @@ import Hello from './Hello';
 import Helloworld from './Helloworld';
 import LikeButton from './LikeButton';
 import Pokemon from './Pokemon';
+import Select from './Select';
 import UserForm from './UserForm';
 import Exercices from './exercices/exercices';
 
@@ -37,6 +38,9 @@ function App() {
       <LikeButton />
       <UserForm />
       <Exercices />
+
+      <h2>Select (conditional rendering, loops, style)</h2>
+      <Select />
     </div>
   );
 }
