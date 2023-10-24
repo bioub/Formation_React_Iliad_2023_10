@@ -5,6 +5,7 @@ import Helloworld from './Helloworld';
 import LikeButton from './LikeButton';
 import Pokemon from './Pokemon';
 import UserForm from './UserForm';
+import Exercices from './exercices/exercices';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
       <LikeButton />
       <LikeButton />
       <UserForm />
+      <Exercices />
     </div>
   );
 }
