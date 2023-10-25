@@ -9,6 +9,7 @@ import Pokemon from './Pokemon';
 import Select from './Select';
 import UserForm from './UserForm';
 import Exercices from './exercices/exercices';
+import Carte from './Carte';
 
 function App() {
   const [likesInApp, setLikesInApp] = useState(10);
@@ -54,6 +55,9 @@ function App() {
       </h2>
       <LikeButtonControlled likes={likesInApp} onIncrement={handleIncrement} />
       <LikeButtonControlled likes={likesInApp} onIncrement={handleIncrement} />
+    
+      <h2>Carte (utilisation de leaflet)</h2>
+      <Carte />
     </div>
   );
 }
