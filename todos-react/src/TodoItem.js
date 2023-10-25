@@ -13,7 +13,7 @@ function TodoItem({ todo }) {
 }
 
 TodoItem.propTypes = {
-  todo: shape({ _id: string, title: string, completed: bool }).isRequired,
+  todo: shape({ _id: string.isRequired, title: string.isRequired, completed: bool.isRequired }).isRequired,
 };
 
 export default TodoItem;

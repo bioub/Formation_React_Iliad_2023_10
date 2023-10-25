@@ -1,18 +1,36 @@
+import { useState } from 'react';
 import './App.css';
 import TodoItem from './TodoItem';
 
 function App() {
+  const [newTodo, setNewTodo] = useState('XYZ');
+  const [todos, setTodos] = useState([
+    { _id: Math.random().toString(), title: 'ABC', completed: true },
+    { _id: Math.random().toString(), title: 'DEF', completed: false },
+    { _id: Math.random().toString(), title: 'HIJ', completed: true },
+  ]);
+
+  function handleChange(event) {
+    setNewTodo(event.target.value);
+  } 
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setTodos([
+      ...todos,
+      { _id: Math.random().toString(), title: newTodo, completed: false }
+    ]);
+  }
+
   return (
     <div className="App">
-      <form className="todos-form">
+      <form className="todos-form" onSubmit={handleSubmit}>
         <input type="checkbox" className="todos-toggle-checked" />
-        <input type="text" className="todos-new-input" />
+        <input type="text" value={newTodo} onChange={handleChange} className="todos-new-input" />
         <button>+</button>
       </form>
       <div className="todos-container">
-        <TodoItem todo={{_id: 'abcdef1234', title: 'ABC', completed: true }} />
-        <TodoItem todo={{_id: 'fghf35353s', title: 'DEF', completed: false }} />
-        <TodoItem todo={{_id: 'luplkupu23', title: 'XYC', completed: true }} />
+        {todos.map((todo) => <TodoItem todo={todo} key={todo._id} />)}
       </div>
     </div>
   );
