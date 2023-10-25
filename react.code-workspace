@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "typescript-react-nx"
+		},
+		{
+			"path": "demos-redux"
 		}
 	],
 	"settings": {}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import TodoItem from './TodoItem';
 
@@ -9,6 +9,14 @@ function App() {
     { _id: Math.random().toString(), title: 'DEF', completed: false },
     { _id: Math.random().toString(), title: 'HIJ', completed: true },
   ]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+      .then((res) => res.json())
+      .then((data) => {
+        setTodos(data);
+      });
+  }, []);
 
   function handleChange(event) {
     setNewTodo(event.target.value);
