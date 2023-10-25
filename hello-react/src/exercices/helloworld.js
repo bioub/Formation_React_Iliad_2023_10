@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function Helloworld() {
-  const [name, setName] = useState('Romain');
+function Helloworld({ name, onNameChange }) {
+  // const [name, setName] = useState('Romain');
 
   function handleInput(event) {
-    setName(event.target.value);
+    onNameChange(event.target.value);
   }
 
   return (
