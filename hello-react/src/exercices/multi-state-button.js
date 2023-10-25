@@ -27,5 +27,12 @@ export default MultiStateButton;
 // le premier élément du tableau reçu en props
 // Au clic du bouton afficher l'élément suivant
 // repartir du début du tableau si besoin
-// BONUS : comment récupérer la valeur sélectionnée au 
-// niveau du composant parent ? (Exercices)
+
+// Exercice 3 : récupérer la valeur sélectionnée (selected) au 
+// niveau du composant parent (Exercices) et la stocker dans le state name
+// (puis l'afficher quelque part dans Exercices)
+
+// Exercice 4 : transformer Helloworld en un composant controllé comme LikeButtonControlled par rapport à LikeButton
+// (remonter le state name au niveau du parent Exercice (Lifting state up))
+
+// BONUS : implémenter le click du bouton moins dans TodoItem

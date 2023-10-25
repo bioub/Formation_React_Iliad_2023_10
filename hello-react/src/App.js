@@ -1,19 +1,26 @@
+import { useState } from 'react';
 import './App.css';
 import Clock from './Clock';
 import Hello from './Hello';
 import Helloworld from './Helloworld';
 import LikeButton from './LikeButton';
+import LikeButtonControlled from './LikeButtonControlled';
 import Pokemon from './Pokemon';
 import Select from './Select';
 import UserForm from './UserForm';
 import Exercices from './exercices/exercices';
 
 function App() {
+  const [likesInApp, setLikesInApp] = useState(10);
 
   const contact = {
     name: 'Romain',
     age: 38,
     isActive: true,
+  }
+
+  function handleIncrement(newLikesValue) {
+    setLikesInApp(newLikesValue);
   }
 
   return (
@@ -41,6 +48,12 @@ function App() {
 
       <h2>Select (conditional rendering, loops, style)</h2>
       <Select />
+
+      <h2>LikeButtonControlled (communication entre plusieurs composants via les props,
+        Lifting state up (remonte le state), Composants contrôllés)
+      </h2>
+      <LikeButtonControlled likes={likesInApp} onIncrement={handleIncrement} />
+      <LikeButtonControlled likes={likesInApp} onIncrement={handleIncrement} />
     </div>
   );
 }
