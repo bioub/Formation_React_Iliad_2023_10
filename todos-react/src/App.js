@@ -10,13 +10,13 @@ function App() {
     { _id: Math.random().toString(), title: 'HIJ', completed: true },
   ]);
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
-      .then((res) => res.json())
-      .then((data) => {
-        setTodos(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('https://jsonplaceholder.typicode.com/todos')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setTodos(data);
+  //     });
+  // }, []);
 
   function handleChange(event) {
     setNewTodo(event.target.value);
